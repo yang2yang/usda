@@ -16,6 +16,7 @@ for i in range(7,table.nrows):
 
     print(recode[1])
 
+print(table.row_values(9999))
 
 # for i in range(1000):
 #     print(table.row_values(i))

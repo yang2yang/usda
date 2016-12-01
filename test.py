@@ -7,3 +7,6 @@ print(r.content)
 
 r = requests.get("https://www.baidu.com")
 print(r.content)
+
+for i in range(100):
+    print(i)
