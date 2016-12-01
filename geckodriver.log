@@ -1,0 +1,11 @@
+1480492062631	geckodriver	INFO	Listening on 127.0.0.1:62300
+1480492232953	geckodriver	INFO	Listening on 127.0.0.1:62466
+1480492241915	mozprofile::profile	INFO	Using profile path C:\Users\admin\AppData\Local\Temp\rust_mozprofile.D4GAAjV79uL8
+1480492294279	geckodriver	INFO	Listening on 127.0.0.1:62514
+1480492303322	mozprofile::profile	INFO	Using profile path C:\Users\admin\AppData\Local\Temp\rust_mozprofile.cOz82aM7uDSq
+1480492363663	geckodriver	INFO	Listening on 127.0.0.1:62540
+1480492365664	mozprofile::profile	INFO	Using profile path C:\Users\admin\AppData\Local\Temp\rust_mozprofile.sl0LBXPrG42X
+1480492365666	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\Mozilla Firefox
+1480492674811	geckodriver	INFO	Listening on 127.0.0.1:50344
+1480492676871	mozprofile::profile	INFO	Using profile path C:\Users\admin\AppData\Local\Temp\rust_mozprofile.81KGVErYvMvg
+1480492676876	geckodriver::marionette	INFO	Starting browser C:\Program Files (x86)\Mozilla Firefox
