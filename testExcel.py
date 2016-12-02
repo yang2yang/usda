@@ -1,6 +1,6 @@
 import xlrd
 fileName = "ExportSalesDataByCommodity1.xls"
-
+fileName = "CY2016.csv"
 data = xlrd.open_workbook(fileName)
 
 table = data.sheets()[0]
@@ -16,7 +16,7 @@ for i in range(7,table.nrows):
 
     print(recode[1])
 
-print(table.row_values(9999))
+# print(table.row_values(9999))
 
 # for i in range(1000):
 #     print(table.row_values(i))

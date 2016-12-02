@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String,Float
 from sqlalchemy.orm import sessionmaker
 
 engine = create_engine('mysql+pymysql://root:root123@192.168.5.12:3306/demodb?charset=utf8',echo=True)
@@ -17,12 +17,13 @@ class Person(Base):
     username = Column(String,nullable=False,default='')
     password = Column(String,nullable=False,default='')
     email = Column(String,nullable=False,default='')
+    testdouble = Column(Float)
 
     def __repr__(self):
         return 'the info is ID %s Pname is %s Address is %s and Age is %s' % \
         (self.id2, self.username, self.password, self.email)
 
-p = Person(username='bruce', password='beijing', email="22")
+p = Person(username='bruce', password='beijing', email="23",testdouble=None)
 session.add(p)
 session.commit()
 
