@@ -14,3 +14,6 @@ num = pattern.search(text)
 print("hello")
 print(num.group(0))
 print(num.group(1))
+
+
+print(type("123") == type(""))

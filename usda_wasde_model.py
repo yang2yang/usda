@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Date, Float
 from sqlalchemy.orm import Session
+from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
@@ -44,11 +45,10 @@ class usdaWasdeSoybean(Base):
     Production = Column(Float)
     Imports = Column(Float)
     TotalSupply = Column(Float)
-    FeedandResidual = Column(Float)
-    FoodSeedIndustrial = Column(Float)
-    EthanolByProducts = Column(Float)
-    TotalDomestic = Column(Float)
+    Crushings = Column(Float)
     Exports = Column(Float)
+    Seed = Column(Float)
+    Residual = Column(Float)
     TotalUse = Column(Float)
     EndingStocks = Column(Float)
     AvgFarmPriceLow = Column(Float)
@@ -127,4 +127,6 @@ class usdaWasdeWorldSoybean(Base):
 
 engine = create_engine('mysql+pymysql://root:root123@192.168.5.12:3306/data_analyze?charset=utf8', echo=True)
 
+
+Session = sessionmaker(bind=engine)
 session = Session()
