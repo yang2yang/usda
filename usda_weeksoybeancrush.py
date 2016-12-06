@@ -62,11 +62,15 @@ class ExportSale(Base):
 Session = sessionmaker(bind=engine)
 session = Session()
 try:
-    p = ExportSale(Date=gxDate,OilPrice=OilPrice,OilYield=OilYield,OilValue=OilValue,MealPrice=MealPrice,
-                   MealYield=MealYield,MealValue=MealValue,OMValue=OMValue,SBValue=SBValue,DiffOMSB=DiffOMSB,EPV=EPV)
 
-    session.add(p)
-    session.commit()
+    temp = session.query(ExportSale).filter_by(Date=gxDate)
+
+    #因为不需要覆盖旧数据，所以不用更新,当数据不存在的时候，直接add
+    if temp is None:
+        p = ExportSale(Date=gxDate,OilPrice=OilPrice,OilYield=OilYield,OilValue=OilValue,MealPrice=MealPrice,
+                       MealYield=MealYield,MealValue=MealValue,OMValue=OMValue,SBValue=SBValue,DiffOMSB=DiffOMSB,EPV=EPV)
+        session.add(p)
+        session.commit()
 except Exception:
     # 最好还是有个记录日志的东西，把日志记录一下
     pass

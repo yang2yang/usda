@@ -11,7 +11,7 @@ Base = declarative_base()
 
 # 对象映射表
 class ExportSale(Base):
-    __tablename__ = 'usda_exportsale_copy'
+    __tablename__ = 'usda_exportsale'
 
     Commodity = Column(String, primary_key=True)
     Date = Column(Date, primary_key=True)
@@ -38,7 +38,7 @@ class ExportSale(Base):
 Session = sessionmaker(bind=engine)
 session = Session()
 
-fileName = "ExportSalesDataByCommodity1.xls"
+fileName = "exportSale/ExportSalesDataByCommodity (6).xls"
 
 data = xlrd.open_workbook(fileName)
 

@@ -14,8 +14,16 @@ import requests
 #     code.write(r.content)
 
 
-url = 'https://www.ams.usda.gov/mnreports/gx_gr211.txt'
-r = requests.get(url)
+# url = 'https://www.ams.usda.gov/mnreports/gx_gr211.txt'
+# r = requests.get(url)
+#
+# with open("gx.txt", "wb") as code:
+#     code.write(r.content)
 
-with open("gx.txt", "wb") as code:
-    code.write(r.content)
+if True:
+    a = 5
+    print(a)
+
+print(a)
+
+print(float(None))
