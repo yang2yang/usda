@@ -1,4 +1,5 @@
 import requests
+import os
 # from requests.packages.urllib3.exceptions import InsecureRequestWarning
 # #
 # requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -20,10 +21,14 @@ import requests
 # with open("gx.txt", "wb") as code:
 #     code.write(r.content)
 
-if True:
-    a = 5
-    print(a)
+# if True:
+#     a = 5
+#     print(a)
+#
+# print(a)
+#
+# print(float(None))
 
-print(a)
-
-print(float(None))
+dirname = "10s/2016/"
+for d in os.listdir(dirname):
+    print(d)
