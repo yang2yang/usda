@@ -29,6 +29,25 @@ import os
 #
 # print(float(None))
 
-dirname = "10s/2016/"
-for d in os.listdir(dirname):
-    print(d)
+# dirname = "10s/2016/"
+# for d in os.listdir(dirname):
+#     print(d)
+from datetime import datetime
+
+# print("123"[1])
+#
+# test = datetime(2010,5,1)
+#
+# print(type(test.day))
+#
+a = '198543'
+print(a[-2:])
+# import WindPy
+#
+# flag = "open,high,low,close,volume,amt,chg,pct_chg,oi"
+# WindPy.w.start()
+# data = WindPy.w.wsd('M01M.DCE', flag , "2015-01-01", "2016-01-01", "", showblank=0)
+# print("1")
+
+
+print(int('11'))
