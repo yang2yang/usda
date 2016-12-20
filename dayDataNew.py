@@ -43,15 +43,14 @@ class DataScrapy:
         self.today = datetime.date.today()  # 获取今天日期
         self.deltadays = datetime.timedelta(days=30)  # 确定日期差额，如前天 days=2
         self.yesterday = self.today - self.deltadays  # 获取差额日期，昨天
-        self.yesterday = "2016-11-22"
-        self.yesterday = "1990-01-01"
+        self.yesterday = '1990-01-01'
         self.month = {"F": 1, "H": 3, "K": 5, "N": 7, "Q": 8, "U": 9, "V": 10, "X": 11, "Z": 12}
 
     # 获得数据库的连接和cursor
     def getSession(self):
         engine = create_engine(
-            # 'mysql+pymysql://rootdemo:R0ot@cC2016@rm-uf64r530b3fpwuhnro.mysql.rds.aliyuncs.com:3399/data_analyze?charset=utf8',
-            'mysql+pymysql://root:root123@192.168.5.12:3306/data_analyze?charset=utf8',
+            'mysql+pymysql://rootrun:R0ot#cC2016@12JK*7H3fj@rm-uf64r530b3fpwuhnro.mysql.rds.aliyuncs.com:3399/data_analyze?charset=utf8',
+            # 'mysql+pymysql://root:root123@192.168.5.12:3306/data_analyze?charset=utf8',
             echo=True)
         Session = sessionmaker(bind=engine)
         self.session = Session()
@@ -65,7 +64,7 @@ class DataScrapy:
         for i in range(len(outdata.Data[0])):
             if self.isSuccess(code, outdata.Times[i]) and int(100 * outdata.Data[0][i]) != 0 and int(
                             100 * outdata.Data[1][i]) != 0 and int(
-                            100 * outdata.Data[2][i]) != 0 and int(100 * outdata.Data[3][i]) != 0:
+                        100 * outdata.Data[2][i]) != 0 and int(100 * outdata.Data[3][i]) != 0:
                 p = daydata_echart(code=code,
                                    date=outdata.Times[i],
                                    open=outdata.Data[0][i],
@@ -204,7 +203,7 @@ def getCme():
 # DCE,CZC
 def getDceCzc():
     codes = []
-    list0 = ['16', '17', '18', '19']
+    list0 = ['98','99','00','01', '02', '03', '04', '05', '06', '07', '08','09','10','11','12','13','14','15','16', '17', '18', '19']
     list1 = ['6', '7', '8']
     list2 = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     dce = ['M', 'Y', 'P', 'C', 'CS', 'JD', 'A']

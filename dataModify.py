@@ -13,7 +13,7 @@ session = Session()
 
 
 class daydata_cont_cbot(Base):
-    __tablename__ = 'daydata_cont_cbot_copy1'
+    __tablename__ = 'daydata_cont_cbot'
     code = Column(String, primary_key=True)
     date = Column(Date, primary_key=True)
     open = Column(Float)
