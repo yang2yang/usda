@@ -49,8 +49,8 @@ class DataScrapy:
     # 获得数据库的连接和cursor
     def getSession(self):
         engine = create_engine(
-            'mysql+pymysql://rootrun:R0ot#cC2016@12JK*7H3fj@rm-uf64r530b3fpwuhnro.mysql.rds.aliyuncs.com:3399/data_analyze?charset=utf8',
-            # 'mysql+pymysql://root:root123@192.168.5.12:3306/data_analyze?charset=utf8',
+            # 'mysql+pymysql://rootrun:R0ot#cC2016@12JK*7H3fj@rm-uf64r530b3fpwuhnro.mysql.rds.aliyuncs.com:3399/data_analyze?charset=utf8',
+            'mysql+pymysql://root:root123@192.168.5.12:3306/data_analyze?charset=utf8',
             echo=True)
         Session = sessionmaker(bind=engine)
         self.session = Session()
@@ -65,6 +65,8 @@ class DataScrapy:
             if self.isSuccess(code, outdata.Times[i]) and int(100 * outdata.Data[0][i]) != 0 and int(
                             100 * outdata.Data[1][i]) != 0 and int(
                         100 * outdata.Data[2][i]) != 0 and int(100 * outdata.Data[3][i]) != 0:
+                if "RO" in code :
+                    code = "OI" + code[2:]
                 p = daydata_echart(code=code,
                                    date=outdata.Times[i],
                                    open=outdata.Data[0][i],
@@ -209,15 +211,21 @@ def getDceCzc():
     dce = ['M', 'Y', 'P', 'C', 'CS', 'JD', 'A']
     czc = ['RM', 'OI']
 
-    for a in dce:
-        for b in list0:
+    # for a in dce:
+    #     for b in list0:
+    #         for c in list2:
+    #             dcecodes = a + b + c + ".DCE"
+    #             # codes.append(dcecodes)
+    # for a in czc:
+    #     for b in list1:
+    #         for c in list2:
+    #             czccodes = a + b + c + ".CZC"
+    #             codes.append(czccodes)
+
+    for a in ["RO"]:
+        for b in ['07','08','09','10','11','12','13','14']:
             for c in list2:
-                dcecodes = a + b + c + ".DCE"
-                codes.append(dcecodes)
-    for a in czc:
-        for b in list1:
-            for c in list2:
-                czccodes = a + b + c + ".CZC"
+                czccodes = a + b + c + '.CZC'
                 codes.append(czccodes)
     return codes
 
