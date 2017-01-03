@@ -24,7 +24,7 @@ class daydata_cont_cbot(Base):
     oi = Column(Integer)
     sp = Column(Float)
 
-month = {"F": 1, "H": 3, "K": 5, "N": 7, "Q": 8, "U": 9, "V": 10, "X": 11, "Z": 12}
+month = {"F": 1,"G":2,"H": 3,"J":4,"K": 5,"M":6 ,"N": 7, "Q": 8, "U": 9, "V": 10, "X": 11, "Z": 12}
 
 for row in session.query(daydata_cont_cbot).all():
 

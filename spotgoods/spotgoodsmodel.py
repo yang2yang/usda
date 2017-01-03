@@ -9,7 +9,7 @@ Base = declarative_base()
 
 
 class SpotMarketChina(Base):
-    __tablename__ = 'spotmarket_china'
+    __tablename__ = 'spotmarket_china_copy1'
     Commodity = Column(String, primary_key=True)
     Date = Column(Date)
     State = Column(String, default="")
