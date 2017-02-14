@@ -1,15 +1,11 @@
-from datetime import datetime
-
 import xlrd
-fileName = "ExportSalesDataByCommodity1.xls"
-fileName = "CY2016.csv"
-fileName = "USDA-SB.xlsx"
-fileName = "wasde-12-10-2010.xls"
+
+fileName = "report.xls"
 
 data = xlrd.open_workbook(fileName)
 
 table = data.sheets()[0]
-table = data.sheets()[8]
+# table = data.sheets()[8]
 
 for i in range(table.nrows):
     recode = table.row_values(i)
@@ -48,6 +44,3 @@ for i in range(table.nrows):
 #     # print(table.row_values(i))
 #
 #
-print("aaa",table.cell(1,3).value)
-
-print(datetime.strptime(table.cell(1,3).value,'%B %Y').date())

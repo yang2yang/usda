@@ -41,9 +41,10 @@ class DataScrapy:
         self.flag = "open,high,low,close,volume,amt,chg,pct_chg,oi"
         self.codes = codes
         self.today = datetime.date.today()  # 获取今天日期
-        self.deltadays = datetime.timedelta(days=30)  # 确定日期差额，如前天 days=2
+        self.deltadays = datetime.timedelta(days=3)  # 确定日期差额，如前天 days=2
         self.yesterday = self.today - self.deltadays  # 获取差额日期，昨天
-        self.yesterday = '1990-01-01'
+        self.today = '2017-01-24'
+        # self.yesterday = '1990-01-01'
         self.month = {"F": 1, "H": 3, "K": 5, "N": 7, "Q": 8, "U": 9, "V": 10, "X": 11, "Z": 12}
 
     # 获得数据库的连接和cursor
@@ -67,6 +68,10 @@ class DataScrapy:
                         100 * outdata.Data[2][i]) != 0 and int(100 * outdata.Data[3][i]) != 0:
                 if "RO" in code :
                     code = "OI" + code[2:]
+
+                if len(code) == 9 and ("CZC" in code):
+                    code = code[:2] + "1" + code[2:]
+
                 p = daydata_echart(code=code,
                                    date=outdata.Times[i],
                                    open=outdata.Data[0][i],
@@ -216,17 +221,17 @@ def getDceCzc():
     #         for c in list2:
     #             dcecodes = a + b + c + ".DCE"
     #             # codes.append(dcecodes)
-    # for a in czc:
-    #     for b in list1:
-    #         for c in list2:
-    #             czccodes = a + b + c + ".CZC"
-    #             codes.append(czccodes)
-
-    for a in ["RO"]:
-        for b in ['07','08','09','10','11','12','13','14']:
+    for a in czc:
+        for b in list1:
             for c in list2:
-                czccodes = a + b + c + '.CZC'
+                czccodes = a + b + c + ".CZC"
                 codes.append(czccodes)
+    #
+    # for a in ["RO"]:
+    #     for b in ['07','08','09','10','11','12','13','14']:
+    #         for c in list2:
+    #             czccodes = a + b + c + '.CZC'
+    #             codes.append(czccodes)
     return codes
 
 
@@ -273,9 +278,9 @@ if __name__ == "__main__":
     WindPy.w.start()
 
     codes = getCbotIce()
-    codes.extend(getCme())
-    codes.extend(getDceCzc())
-    codes.extend(others)
+    # codes.extend(getCme())
+    # codes.extend(getDceCzc())
+    # codes.extend(others)
 
     codes = getDceCzc()
 
